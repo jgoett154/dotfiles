@@ -1,0 +1,6 @@
+[user]
+	name = Joe Goett
+	email = jgoett154@gmail.com
+
+[core]
+	editor = nvim

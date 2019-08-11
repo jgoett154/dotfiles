@@ -1,2 +1,2 @@
-# dorfiles
+# dotfiles
 My personal Linux dotfiles

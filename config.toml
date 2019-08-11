@@ -1,0 +1,79 @@
+[macros.install]
+deps = ["yay"]
+prefix = ["sudo", "yay", "-S"]
+
+[tasks.yay]
+deps = ["git"]
+rejcts = [["which", "yay"]]
+cmds = [
+	["${HM_SRC}/bin/install_yay.sh"]
+]
+
+[tasks.git]
+cmds = [
+	["sudo", "pacman", "-S", "git", "git-lfs"]
+]
+links = [
+	[".gitconfig"]
+]
+
+[tasks.fonts]
+cmds = [
+	["@install", "ttf-liberation", "ttf-font-awesome"]
+]
+
+[tasks.alacritty]
+cmds = [
+	["@install", "alacritty"]
+]
+links = [
+	[".config/alacritty"]
+]
+
+[tasks.fish]
+cmds = [
+	["@install", "fish", "fisher"]
+]
+links = [
+	[".config/fish"]
+]
+
+[tasks.tmux]
+cmds = [
+	["@install", "tmux", "tmuxp"]
+]
+links = [
+	[".config/tmux"]
+]
+
+[tasks.pywal]
+cmds = [
+	["@install", "python-pywal"],
+	["wal", "-i", "${HM_SRC}/wallpaper.jpg", "--backend", "colorthief"]
+]
+
+[tasks.sway]
+cmds = [
+	["gpg", "--search-keys", "A1774C1B37DC1DCEDB65EE469B8450B91D1362C1"],
+	["gpg", "--lsign-key", "A1774C1B37DC1DCEDB65EE469B8450B91D1362C1"],
+	["@install", "xorg-server-xwayland", "sway", "swayidle", "swaylock", "waybar", "mako", "bemenu", "j4-dmenu-desktop", "jq", "grim", "slurp", "wl-clipboard"]
+]
+deps = ["pywal"]
+links = [
+	[".config/sway"],
+	[".config/waybar"],
+	[".config/mako"]
+]
+
+[tasks.nvim]
+cmds = [
+	["@install", "neovim", "python-neovim"]
+]
+links = [
+	[".config/nvim"]
+]
+
+[tasks.games]
+cmds = [
+	["@install", "vulkan-icd-loader", "lib32-vulkan-icd-loader", "steam", "steam-native-runtime", "lutris", "wine", "retroarch", "multimc5"]
+]

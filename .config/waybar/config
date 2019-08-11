@@ -1,0 +1,27 @@
+{
+	"layer": "bottom",
+	"position": "top",
+	"height": 30,
+	"modules-left": ["sway/workspaces"],
+	"modules-center": ["clock"],
+	"modules-right": ["mpd", "pulseaudio", "tray"],
+	"sway/workspaces": {
+		"all-outputs": false,
+		"format": "{name}"
+	},
+	"clock": {
+		"interval": 60,
+		"format": "{:%I:%M %p}",
+		"max-length": 25
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-muted": " {volume}%",
+		"format-icons": {
+			"default": ["", ""]
+		},
+		"scroll-step": 5,
+		"on-click": "pavucontrol",
+		"on-click-right": "pamixer --toggle-mute"
+	}
+}
