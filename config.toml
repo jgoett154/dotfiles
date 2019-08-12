@@ -1,10 +1,10 @@
 [macros.install]
 deps = ["yay"]
-prefix = ["sudo", "yay", "-S"]
+prefix = ["yay", "-S"]
 
 [tasks.yay]
 deps = ["git"]
-rejcts = [["which", "yay"]]
+rejects = [["which", "yay"]]
 cmds = [
 	["${HM_SRC}/bin/install_yay.sh"]
 ]
@@ -48,7 +48,7 @@ links = [
 
 [tasks.pywal]
 cmds = [
-	["@install", "python-pywal"],
+	["@install", "python-pywal", "python-colorthief"],
 	["wal", "-i", "${HM_SRC}/wallpaper.jpg", "--backend", "colorthief"]
 ]
 
@@ -58,7 +58,7 @@ cmds = [
 	["gpg", "--lsign-key", "A1774C1B37DC1DCEDB65EE469B8450B91D1362C1"],
 	["@install", "xorg-server-xwayland", "sway", "swayidle", "swaylock", "waybar", "mako", "bemenu", "j4-dmenu-desktop", "jq", "grim", "slurp", "wl-clipboard"]
 ]
-deps = ["pywal"]
+deps = ["pywal", "fonts"]
 links = [
 	[".config/sway"],
 	[".config/waybar"],
@@ -71,6 +71,21 @@ cmds = [
 ]
 links = [
 	[".config/nvim"]
+]
+
+[tasks.audio]
+cmds = [
+	["@install", "pulseaudio", "pamixer", "pavucontrol"]
+]
+
+[tasks.browsers]
+cmds = [
+	["@install", "google-chrome", "firefox"]
+]
+
+[tasks.chat]
+cmds = [
+	["@install", "discord", "betterdiscordctl", "pidgin", "purple-facebook", "telegram-purple", "purple-battlenet-hg", "purple-discord-git", "purple-hangouts-hg"]
 ]
 
 [tasks.games]
