@@ -1,3 +1,6 @@
+[tasks.default]
+deps = ["alacritty", "sway", "games", "nvim", "corsair"]
+
 [macros.install]
 deps = ["yay"]
 prefix = ["yay", "-S"]
