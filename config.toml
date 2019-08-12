@@ -23,6 +23,7 @@ cmds = [
 ]
 
 [tasks.alacritty]
+deps = ["fish", "tmux"]
 cmds = [
 	["@install", "alacritty"]
 ]
@@ -31,6 +32,7 @@ links = [
 ]
 
 [tasks.fish]
+rejects = [["which", "fish"]]
 cmds = [
 	["@install", "fish", "fisher"]
 ]
@@ -58,7 +60,7 @@ cmds = [
 	["gpg", "--lsign-key", "A1774C1B37DC1DCEDB65EE469B8450B91D1362C1"],
 	["@install", "xorg-server-xwayland", "sway", "swayidle", "swaylock", "waybar", "mako", "bemenu", "j4-dmenu-desktop", "jq", "grim", "slurp", "wl-clipboard"]
 ]
-deps = ["pywal", "fonts"]
+deps = ["pywal", "fonts", "amdgpu", "audio", "browsers", "chat"]
 links = [
 	[".config/sway"],
 	[".config/waybar"],
@@ -95,5 +97,10 @@ cmds = [
 
 [tasks.games]
 cmds = [
-	["@install", "vulkan-icd-loader", "lib32-vulkan-icd-loader", "steam", "steam-native-runtime", "lutris", "wine", "retroarch", "multimc5"]
+	["@install", "steam", "steam-native-runtime", "lutris", "wine", "retroarch", "multimc5"]
+]
+
+[tasks.amdgpu]
+cmds = [
+	["@install", "mesa", "lib32-mesa", "vulkan-radeon", "lib32-vulkan-radeon", "vulkan-icd-loader", "lib32-vulkan-icd-loader"]
 ]
