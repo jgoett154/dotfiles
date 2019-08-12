@@ -17,7 +17,7 @@ Plug 'w0rp/ale'
 Plug 'itchyny/lightline.vim'
 
 " Git Plugins
-Plug "tpope/vim-fugitive"
+Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
