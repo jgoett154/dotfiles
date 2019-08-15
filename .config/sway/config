@@ -2,7 +2,7 @@
 include "$HOME/.cache/wal/colors-sway"
 set $term alacritty
 set $browser google-chrome-stable
-set $menu env BEMENU_BACKEND=wayland bemenu -i --fn "Liberation Mono 10" --tb "$color3" --tf "#FFFFFF" --fb "$color3" --ff "#FFFFFF" --nb "$color3" --nf "#FFFFFF" --hb "$color5" --hf "#FFFFFF" --scb "$color5" --scf "#FFFFFF"
+set $menu env BEMENU_BACKEND=wayland bemenu -i --scrollbar=always -l 10 --fn "Liberation Mono 10" --tb "$color3" --tf "#FFFFFF" --fb "$color3" --ff "#FFFFFF" --nb "$color3" --nf "#FFFFFF" --hb "$color5" --hf "#FFFFFF" --scb "$color5" --scf "#FFFFFF"
 set $leftMonitor DVI-D-1
 set $rightMonitor HDMI-A-1
 set $locker swaylock -f --font "Liberation Mono 10" -i $wallpaper --ring-color "$color5" --key-hl-color "$color3" --line-color "$foreground"
@@ -85,7 +85,7 @@ set $right right
 bindsym $mod+Return workspace $ws1; exec --no-startup-id $term
 
 # Open Menu
-bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu='$menu' --term $term
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu='$menu -p "Select Program:"' --term $term
 
 # Open Browser
 bindsym $mod+b exec --no-startup-id $browser
