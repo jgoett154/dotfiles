@@ -10,6 +10,10 @@ let g:lightline = {
 	  \		'left': [ [ 'mode' ] ],
 	  \		'right': [ [ 'gitbranch' ] ]
 	  \ },
+	  \ 'inactive': {
+	  \		'left': [ [ 'mode' ] ],
+	  \		'right': [ [ 'gitbranch' ] ]
+	  \ },
 	  \ 'component_function': {
 	  \		'gitbranch': 'fugitive#head',
 	  \		'mode': 'LightlineMode',
