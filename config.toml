@@ -14,7 +14,7 @@ cmds = [
 
 [tasks.git]
 cmds = [
-	["sudo", "pacman", "-S", "git", "git-lfs"]
+	["sudo", "pacman", "-S", "git", "git-lfs", "openssh"]
 ]
 links = [
 	[".gitconfig"]
