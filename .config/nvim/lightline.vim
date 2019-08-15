@@ -5,10 +5,10 @@ if !has('gui_running')
 endif
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'wal',
 	  \ 'active': {
 	  \		'left': [ [ 'mode' ] ],
-	  \		'right': []
+	  \		'right': [ [ 'gitbranch' ] ]
 	  \ },
 	  \ 'component_function': {
 	  \		'gitbranch': 'fugitive#head',
