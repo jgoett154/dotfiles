@@ -61,7 +61,8 @@ cmds = [
 cmds = [
 	["gpg", "--search-keys", "A1774C1B37DC1DCEDB65EE469B8450B91D1362C1"],
 	["gpg", "--lsign-key", "A1774C1B37DC1DCEDB65EE469B8450B91D1362C1"],
-	["@install", "xorg-server-xwayland", "sway", "swayidle", "swaylock", "waybar", "mako", "bemenu", "j4-dmenu-desktop", "jq", "grim", "slurp", "wl-clipboard"]
+	["@install", "xorg-server-xwayland", "sway", "swayidle", "swaylock", "waybar", "mako", "bemenu", "j4-dmenu-desktop", "jq", "grim", "slurp", "wl-clipboard", "xdg-user-dirs"]
+	["xdg-user-dirs-update"]
 ]
 deps = ["pywal", "fonts", "amdgpu", "audio", "browsers", "chat"]
 links = [
