@@ -98,7 +98,6 @@ bindsym $mod+l exec --no-startup-id $locker
 
 # Exit Sway
 bindsym $mod+Shift+e exec echo -e "[Cancel]\nLogout\nShutdown\nReboot\nSuspend\nHibernate\nHybrid-sleep\nSuspend-then-hibernate" | $menu | xargs ~/.config/sway/power.sh
-#bindsym $mod+Shift+e exec $nag -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
 # Volume buttons
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5

@@ -1,19 +1,18 @@
 #!/bin/bash
 
+# Based on script by adnan360 and modified for sway
+# Gist: https://gist.github.com/adnan360/f86012baeb4c9ca4f1af033550b03033
+
 # Simple script to handle a DIY shutdown menu. When run you should see a bunch of options (shutdown, reboot etc.)
 #
 # Requirements:
-# - rofi
+# - swayw,
 # - systemd, but you can replace the commands for OpenRC or anything else
 #
 # Instructions:
 # - Save this file as power.sh or anything
 # - Give it exec priviledge, or chmod +x /path/to/power.sh
 # - Run it
-
-#chosen=$(echo -e "[Cancel]\nLogout\nShutdown\nReboot\nSuspend\nHibernate\nHybrid-sleep\nSuspend-then-hibernate" | bemenu -i)
-# Info about some states are available here:
-# https://www.freedesktop.org/software/systemd/man/systemd-sleep.conf.html#Description
 
 if [[ $1 = "Logout" ]]; then
 	swaymsg exit
