@@ -97,7 +97,8 @@ bindsym $mod+q kill
 bindsym $mod+l exec --no-startup-id $locker
 
 # Exit Sway
-bindsym $mod+Shift+e exec $nag -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+e exec echo -e "[Cancel]\nLogout\nShutdown\nReboot\nSuspend\nHibernate\nHybrid-sleep\nSuspend-then-hibernate" | $menu | xargs ~/.config/sway/power.sh
+#bindsym $mod+Shift+e exec $nag -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
 # Volume buttons
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
@@ -197,23 +198,27 @@ mode "resize" {
 }
 
 ######### Program Workpace Assignment #########
-assign [app_id="Alacritty"]    → $ws1
-assign [class="code-oss"]      → $ws2
-assign [class="Steam"]         → $ws5
-assign [app_id="lutris"]       → $ws5
-assign [class="MultiMC5"]      → $ws5
-assign [class="Minecraft"]     → $ws5
-assign [class="Chromium"]      → $ws6
-assign [class="Google-chrome"] → $ws6
-assign [app_id="firefox"]      → $ws6
-assign [class="Pidgin"]        → $ws9
-assign [class="vlc"]           → $ws10
-assign [class="mpv"]           → $ws10
+assign [app_id="Alacritty"]        → $ws1
+assign [class="code-oss"]          → $ws2
+assign [class="Steam"]             → $ws5
+assign [app_id="lutris"]           → $ws5
+assign [class="MultiMC5"]          → $ws5
+assign [class="Minecraft"]         → $ws5
+assign [instance="wow.exe"]        → $ws5
+assign [instance="battle.net.exe"] → $ws5
+assign [class="Chromium"]          → $ws6
+assign [class="Google-chrome"]     → $ws6
+assign [app_id="firefox"]          → $ws6
+assign [class="discord"]           → $ws9
+assign [class="Pidgin"]            → $ws9
+assign [class="vlc"]               → $ws10
+assign [class="mpv"]               → $ws10
 
 ######### Floating Program Fixes #########
 for_window [title="Authy"] floating enable
 
 ######### Program Autostart #########
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id ckb-next -b
 exec --no-startup-id pidgin
 exec --no-startup-id mako --font "Liberation Mono 10" --background-color "$color5" --border-size 4 --border-color "$foreground" --border-radius 5
