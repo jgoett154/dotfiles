@@ -4,7 +4,7 @@
 	"height": 30,
 	"modules-left": ["sway/workspaces"],
 	"modules-center": ["clock"],
-	"modules-right": ["mpd", "pulseaudio", "tray"],
+	"modules-right": ["custom/mpd", "pulseaudio", "tray"],
 	"sway/workspaces": {
 		"all-outputs": false,
 		"format": "{name}"
@@ -23,5 +23,14 @@
 		"scroll-step": 5,
 		"on-click": "pavucontrol",
 		"on-click-right": "pamixer --toggle-mute"
-	}
+	},
+	"custom/mpd": {
+        "format": "♪ {}",
+        //"max-length": 15,
+        "interval": 10, 
+        "exec": "mpc current", 
+        "exec-if": "pgrep mopidy",
+        "on-click": "mpc toggle",
+        "on-click-right": "sonata"
+    }   
 }

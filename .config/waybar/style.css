@@ -61,6 +61,7 @@ window#waybar.hidden {
 #tray,
 #mode,
 #mpd,
+#custom-mpd,
 #idle_inhibitor {
     border-bottom: 3px solid @foreground;
     border-radius: 5px;
@@ -91,7 +92,8 @@ label:focus {
     background-color: @color5;
 }
 
-#mpd {
+#mpd,
+#custom-mpd{
     background-color: @color5;
     color: #ffffff;
 }
