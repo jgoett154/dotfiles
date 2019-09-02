@@ -108,3 +108,12 @@ cmds = [
 cmds = [
 	["@install", "mesa", "lib32-mesa", "vulkan-radeon", "lib32-vulkan-radeon", "vulkan-icd-loader", "lib32-vulkan-icd-loader"]
 ]
+
+[tasks.music]
+cmds = [
+	["@install", "mpc", "ncmpcpp", "cli-visualizer"]
+]
+links = [
+	[".config/mopidy"],
+	[".config/vis"]
+]
