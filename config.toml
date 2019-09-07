@@ -83,6 +83,9 @@ links = [
 cmds = [
 	["@install", "pulseaudio", "pamixer", "pavucontrol"]
 ]
+links = [
+	[".alsoftrc"]
+]
 
 [tasks.browsers]
 cmds = [

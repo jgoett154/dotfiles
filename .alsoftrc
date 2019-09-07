@@ -1,0 +1,6 @@
+[general]
+drivers=pulse,alsa
+hrtf = true
+
+[pulse]
+allow-moves=true
