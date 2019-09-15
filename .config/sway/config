@@ -206,6 +206,7 @@ assign [class="MultiMC5"]          → $ws5
 assign [class="Minecraft"]         → $ws5
 assign [instance="wow.exe"]        → $ws5
 assign [instance="battle.net.exe"] → $ws5
+assign [app_id="retroarch"]        → $ws5
 assign [class="Chromium"]          → $ws6
 assign [class="Google-chrome"]     → $ws6
 assign [app_id="firefox"]          → $ws6
