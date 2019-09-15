@@ -35,9 +35,8 @@ links = [
 ]
 
 [tasks.fish]
-rejects = [["which", "fish"]]
 cmds = [
-	["@install", "fish", "fisher"]
+	["@install", "fish", "fisher", "fzf"]
 ]
 links = [
 	[".config/fish"]
