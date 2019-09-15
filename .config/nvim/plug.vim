@@ -22,5 +22,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Language Plugins
+Plug 'artur-shaik/vim-javacomplete2'
 
 call plug#end()
