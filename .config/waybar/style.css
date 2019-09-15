@@ -93,12 +93,14 @@ label:focus {
 }
 
 #mpd,
-#custom-mpd{
+#custom-mpd,
+#idle_inhibitor.activated {
     background-color: @color5;
     color: #ffffff;
 }
 
-#mpd.stopped {
+#mpd.stopped,
+#idle_inhibitor.deactivated {
     background-color: @color3;
 }
 

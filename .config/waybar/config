@@ -4,7 +4,7 @@
 	"height": 30,
 	"modules-left": ["sway/workspaces"],
 	"modules-center": ["clock"],
-	"modules-right": ["custom/mpd", "pulseaudio", "tray"],
+	"modules-right": ["idle_inhibitor", "pulseaudio", "tray"],
 	"sway/workspaces": {
 		"all-outputs": false,
 		"format": "{name}"
@@ -23,6 +23,13 @@
 		"scroll-step": 5,
 		"on-click": "pavucontrol",
 		"on-click-right": "pamixer --toggle-mute"
+	},
+	"idle_inhibitor": {
+		"format": "{icon} Idle",
+		"format-icons": {
+            "activated": "",
+            "deactivated": ""
+		}
 	},
 	"custom/mpd": {
         "format": "♪ {}",
