@@ -22,6 +22,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Language Plugins
+Plug 'jdonaldson/vaxe', { 'for': 'haxe' }
+"Plug 'sheerun/vim-polyglot'
 Plug 'artur-shaik/vim-javacomplete2'
 
 call plug#end()
