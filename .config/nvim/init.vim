@@ -10,4 +10,5 @@ source $HOME/.config/nvim/plug.vim
 source $HOME/.config/nvim/general.vim
 source $HOME/.config/nvim/deoplete.vim
 source $HOME/.config/nvim/lightline.vim
+source $HOME/.config/nvim/editorconfig.vim
 source $HOME/.config/nvim/autocmd.vim
