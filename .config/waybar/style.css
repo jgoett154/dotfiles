@@ -62,6 +62,7 @@ window#waybar.hidden {
 #mode,
 #mpd,
 #custom-mpd,
+#temperature,
 #idle_inhibitor {
     border-bottom: 3px solid @foreground;
     border-radius: 5px;
@@ -94,6 +95,8 @@ label:focus {
 
 #mpd,
 #custom-mpd,
+#custom-media,
+#temperature,
 #idle_inhibitor.activated {
     background-color: @color5;
     color: #ffffff;

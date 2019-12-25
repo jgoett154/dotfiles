@@ -4,7 +4,7 @@
 	"height": 30,
 	"modules-left": ["sway/workspaces"],
 	"modules-center": ["clock"],
-	"modules-right": ["idle_inhibitor", "pulseaudio", "tray"],
+	"modules-right": ["idle_inhibitor", "temperature#cpu", "temperature#gpu", "pulseaudio", "tray"],
 	"sway/workspaces": {
 		"all-outputs": false,
 		"format": "{name}"
@@ -24,20 +24,19 @@
 		"on-click": "pavucontrol",
 		"on-click-right": "pamixer --toggle-mute"
 	},
+	"temperature#cpu": {
+		"hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+		"format": "CPU {temperatureC}°C"
+	},
+	"temperature#gpu": {
+		"hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+		"format": "GPU {temperatureC}°C"
+	},
 	"idle_inhibitor": {
 		"format": "{icon} Idle",
 		"format-icons": {
             "activated": "",
             "deactivated": ""
 		}
-	},
-	"custom/mpd": {
-        "format": "♪ {}",
-        //"max-length": 15,
-        "interval": 10, 
-        "exec": "mpc current", 
-        "exec-if": "pgrep mopidy",
-        "on-click": "mpc toggle",
-        "on-click-right": "sonata"
-    }   
+	}
 }
