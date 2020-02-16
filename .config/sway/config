@@ -22,7 +22,7 @@ client.placeholder      $foreground $color5    #FFFFFF $background $foreground
 ######### Workspaces #########
 set $ws1 "1:  Terminal"
 set $ws2 "2:  Code"
-set $ws3 "3"
+set $ws3 "3:  Word"
 set $ws4 "4"
 set $ws5 "5:  Games"
 set $ws6 "6:  Web"
@@ -99,10 +99,15 @@ bindsym $mod+l exec --no-startup-id $locker
 # Exit Sway
 bindsym $mod+Shift+e exec echo -e "[Cancel]\nLogout\nShutdown\nReboot\nSuspend\nHibernate\nHybrid-sleep\nSuspend-then-hibernate" | $menu | xargs ~/.config/sway/power.sh
 
-# Volume buttons
+# Sink Volume Buttons
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
 bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
 bindsym XF86AudioMute exec --no-startup-id pamixer --toggle-mute
+
+# Source Volume Buttons
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pamixer --default-source -i 5
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pamixer --default-source -d 5
+bindsym Shift+XF86AudioMute exec --no-startup-id pamixer --default-source --toggle-mute
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -198,25 +203,26 @@ mode "resize" {
 }
 
 ######### Program Workpace Assignment #########
-assign [title="Messages"]          → $ws9
-assign [app_id="Alacritty"]        → $ws1
-assign [class="code-oss"]          → $ws2
-assign [class="VSCodium"]          → $ws2
-assign [class="Steam"]             → $ws5
-assign [app_id="lutris"]           → $ws5
-assign [class="MultiMC5"]          → $ws5
-assign [class="Minecraft"]         → $ws5
-assign [instance="wow.exe"]        → $ws5
-assign [instance="battle.net.exe"] → $ws5
-assign [app_id="retroarch"]        → $ws5
-assign [class="Chromium"]          → $ws6
-assign [class="Google-chrome"]     → $ws6
-assign [class="firefox"]           → $ws6
-assign [class="discord"]           → $ws9
-assign [class="Pidgin"]            → $ws9
-assign [class="Clementine"]        → $ws10
-assign [class="vlc"]               → $ws10
-assign [class="mpv"]               → $ws10
+assign [title="Messages"]                 → $ws9
+assign [app_id="Alacritty"]               → $ws1
+assign [class="code-oss"]                 → $ws2
+assign [app_id="libreoffice-startcenter"] → $ws3
+assign [class="VSCodium"]                 → $ws2
+assign [class="Steam"]                    → $ws5
+assign [app_id="lutris"]                  → $ws5
+assign [class="MultiMC5"]                 → $ws5
+assign [class="Minecraft"]                → $ws5
+assign [instance="wow.exe"]               → $ws5
+assign [instance="battle.net.exe"]        → $ws5
+assign [app_id="retroarch"]               → $ws5
+assign [class="Chromium"]                 → $ws6
+assign [class="Google-chrome"]            → $ws6
+assign [class="firefox"]                  → $ws6
+assign [class="discord"]                  → $ws9
+assign [class="Pidgin"]                   → $ws9
+assign [class="Clementine"]               → $ws10
+assign [class="vlc"]                      → $ws10
+assign [class="mpv"]                      → $ws10
 
 ######### Inhibit Idle ##########
 for_window [class="Chromium"] inhibit_idle fullscreen
