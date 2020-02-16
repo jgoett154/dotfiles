@@ -24,6 +24,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Language Plugins
 Plug 'jdonaldson/vaxe', { 'for': 'haxe' }
 "Plug 'sheerun/vim-polyglot'
-Plug 'artur-shaik/vim-javacomplete2'
+Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 call plug#end()
