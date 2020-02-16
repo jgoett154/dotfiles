@@ -4,7 +4,7 @@
 	"height": 30,
 	"modules-left": ["sway/workspaces"],
 	"modules-center": ["clock"],
-	"modules-right": ["idle_inhibitor", "temperature#cpu", "temperature#gpu", "pulseaudio", "tray"],
+	"modules-right": ["idle_inhibitor", "temperature#cpu", "temperature#gpu", "pulseaudio#source", "pulseaudio#sink", "tray"],
 	"sway/workspaces": {
 		"all-outputs": false,
 		"format": "{name}"
@@ -14,7 +14,7 @@
 		"format": "{:%I:%M %p}",
 		"max-length": 25
 	},
-	"pulseaudio": {
+	"pulseaudio#sink": {
 		"format": "{icon} {volume}%",
 		"format-muted": " {volume}%",
 		"format-icons": {
@@ -23,6 +23,16 @@
 		"scroll-step": 5,
 		"on-click": "pavucontrol",
 		"on-click-right": "pamixer --toggle-mute"
+	},
+	"pulseaudio#source": {
+		"format": "{format_source}",
+		"format-source": " {volume}%",
+		"format-source-muted": " {volume}%",
+		"scroll-step": 5,
+		"on-click": "pavucontrol",
+		"on-click-right": "pamixer --default-source --toggle-mute",
+		"on-scroll-up": "pamixer --default-source -i 5",
+		"on-scroll-down": "pamixer --default-source -d 5"
 	},
 	"temperature#cpu": {
 		"hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
