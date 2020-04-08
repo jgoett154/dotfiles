@@ -11,7 +11,7 @@ else
 endif
 
 Plug 'editorconfig/editorconfig-vim'
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'w0rp/ale'
 Plug 'itchyny/lightline.vim'
@@ -22,6 +22,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Language Plugins
+Plug 'mattn/emmet-vim'
 Plug 'jdonaldson/vaxe', { 'for': 'haxe' }
 "Plug 'sheerun/vim-polyglot'
 Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
