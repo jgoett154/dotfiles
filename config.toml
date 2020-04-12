@@ -70,6 +70,15 @@ links = [
 	[".config/mako"]
 ]
 
+[tasks.i3]
+cmds = [
+	["@install", "i3-gaps"]
+]
+deps = ["pywal", "fonts", "amdgpu", "audio", "browsers", "chat"]
+links = [
+	[".config/i3"]
+]
+
 [tasks.nvim]
 cmds = [
 	["@install", "neovim", "python-neovim"]
