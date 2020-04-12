@@ -1,12 +1,15 @@
 ######### Variables #########
-include "$HOME/.cache/wal/colors-sway"
-set $term alacritty
-set $browser google-chrome-stable
-set $menu env BEMENU_BACKEND=wayland bemenu -i --scrollbar=always -l 10 --fn "Liberation Mono 10" --tb "$color3" --tf "#FFFFFF" --fb "$color3" --ff "#FFFFFF" --nb "$color3" --nf "#FFFFFF" --hb "$color5" --hf "#FFFFFF" --scb "$color5" --scf "#FFFFFF"
+# Colors
+set_from_resource $foreground i3wm.foreground #f0f0f0
+set_from_resource $background i3wm.background #f0f0f0
+set_from_resource $color3     i3wm.color3     #f0f0f0
+set_from_resource $color5     i3wm.color5     #f0f0f0
+
 set $leftMonitor DVI-D-1
 set $rightMonitor HDMI-A-1
-set $locker swaylock -f --font "Liberation Mono 10" -i $wallpaper --ring-color "$color5" --key-hl-color "$color3" --line-color "$foreground"
-set $nag swaynag -t warning --font "Liberation Mono 10" --background "$color5" --button-background "$color5" --border "$foreground" --border-bottom "$foreground" --text "FFFFFF" --border-bottom-size 4 --button-border-size 2
+set $term alacritty
+set $browser google-chrome-stable
+set $menu env BEMENU_BACKEND=x11 bemenu -i --scrollbar=always -l 10 --fn "Liberation Mono 10" --tb "$color3" --tf "#FFFFFF" --fb "$color3" --ff "#FFFFFF" --nb "$color3" --nf "#FFFFFF" --hb "$color5" --hf "#FFFFFF" --scb "$color5" --scf "#FFFFFF"
 
 ######### Styling #########
 font pango:Liberation Mono 10
@@ -43,37 +46,6 @@ workspace $ws8 output $rightMonitor
 workspace $ws9 output $rightMonitor
 workspace $ws10 output $rightMonitor
 
-######### Output Config #########
-
-# Set Wallpaper
-output * bg $wallpaper fill
-
-# Left Monitor
-output $leftMonitor {
-	mode 1600x900@60Hz
-	pos 0 0
-}
-
-# Right Monitor
-output $rightMonitor {
-	mode 1440x900@60Hz
-	pos 1600 0
-}
-
-######### Input Config #########
-
-# Keyboard 
-input type:keyboard {
-	xkb_options ctrl:nocaps
-	xkb_numlock enabled
-	repeat_delay 250
-	repeat_rate 25
-}
-
-# Mouse
-input type:mouse {
-}
-
 ######### Keybindings #########
 set $mod Mod4
 set $left left
@@ -92,9 +64,6 @@ bindsym $mod+b exec --no-startup-id $browser
 
 # Close focused window
 bindsym $mod+q kill
-
-# Lock screen
-bindsym $mod+l exec --no-startup-id $locker
 
 # Exit Sway
 bindsym $mod+Shift+e exec echo -e "[Cancel]\nLogout\nShutdown\nReboot\nSuspend\nHibernate\nHybrid-sleep\nSuspend-then-hibernate" | $menu | xargs ~/.config/sway/power.sh
@@ -119,10 +88,6 @@ bindsym XF86AudioPrev exec playerctl previous
 # Brightness buttons
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 2
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 2
-
-# Print screen
-bindsym print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $(xdg-user-dir PICTURES)/Screenshots/$(date +'%Y-%m-%d-%H%M%S.png')
-bindsym Shift+print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/Screenshots/$(date +'%Y-%m-%d-%H%M%S.png')
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -149,7 +114,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-# Switchs to previously focused workspace when going to same workspace
+# Switches to previously focused workspace
 workspace_auto_back_and_forth yes
 
 # Cycle through workspaces
@@ -204,18 +169,13 @@ mode "resize" {
 
 ######### Program Workpace Assignment #########
 assign [title="Messages"]                 → $ws9
-assign [app_id="Alacritty"]               → $ws1
 assign [class="code-oss"]                 → $ws2
-assign [app_id="libreoffice-startcenter"] → $ws3
 assign [class="VSCodium"]                 → $ws2
 assign [class="Steam"]                    → $ws5
-assign [app_id="lutris"]                  → $ws5
-assign [app_id="org.multimc.multimc"]     → $ws5
 assign [class="MultiMC5"]                 → $ws5
 assign [class="Minecraft"]                → $ws5
 assign [instance="wow.exe"]               → $ws5
 assign [instance="battle.net.exe"]        → $ws5
-assign [app_id="retroarch"]               → $ws5
 assign [class="Chromium"]                 → $ws6
 assign [class="Google-chrome"]            → $ws6
 assign [class="firefox"]                  → $ws6
@@ -225,36 +185,9 @@ assign [class="Clementine"]               → $ws10
 assign [class="vlc"]                      → $ws10
 assign [class="mpv"]                      → $ws10
 
-######### Inhibit Idle ##########
-for_window [class="Chromium"] inhibit_idle fullscreen
-for_window [class="Google-chrome"] inhibit_idle fullscreen
-for_window [workspace=$wm5] inhibit_idle focus
-
-######### Floating Program Fixes #########
-for_window [title="Authy"] floating enable
-
-######### Program Autostart #########
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id ckb-next -b
 exec --no-startup-id pidgin
-exec --no-startup-id mako --font "Liberation Mono 10" --background-color "$color5" --border-size 4 --border-color "$foreground" --border-radius 5
+exec --no-startup-id wal -R
 exec --no-startup-id $browser
 
-######### Other #########
-
-# Set default workspace layout to tabbed
-workspace_layout tabbed
-
-# Idle
-exec --no-startup-id swayidle -w \
-		timeout 300 '$locker' \
-		timeout 360 'swaymsg "output * dpms off"' \
-			resume 'swaymsg "output * dpms on"' \
-		before-sleep '$locker'
-
-# Start waybar
-bar {
-  swaybar_command waybar
-}
-
-include @sysconfdir@/sway/config.d/*
