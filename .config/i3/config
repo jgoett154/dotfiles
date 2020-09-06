@@ -6,7 +6,7 @@ set_from_resource $color3     i3wm.color3     #f0f0f0
 set_from_resource $color5     i3wm.color5     #f0f0f0
 
 set $leftMonitor DVI-D-1
-set $rightMonitor HDMI-A-1
+set $rightMonitor HDMI-1
 set $term alacritty
 set $browser google-chrome-stable
 set $menu env BEMENU_BACKEND=x11 bemenu -i --scrollbar=always -l 10 --fn "Liberation Mono 10" --tb "$color3" --tf "#FFFFFF" --fb "$color3" --ff "#FFFFFF" --nb "$color3" --nf "#FFFFFF" --hb "$color5" --hf "#FFFFFF" --scb "$color5" --scf "#FFFFFF"
@@ -185,6 +185,7 @@ assign [class="Clementine"]               → $ws10
 assign [class="vlc"]                      → $ws10
 assign [class="mpv"]                      → $ws10
 
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id ckb-next -b
 exec --no-startup-id pidgin

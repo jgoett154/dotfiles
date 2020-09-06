@@ -1,0 +1,29 @@
+[module/date]
+type = internal/date
+date = %Y-%m-%d%
+time = %H:%M
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+[bar/right]
+monitor = HDMI-1
+bottom = false
+modules-left = i3
+modules-center = date
+modules-right = pulseaudio
+font-0 = Liberation Mono:size=10
+font-1 = Font Awesome 5 Free:size=10
+
+[bar/left]
+monitor = DVI-D-1
+bottom = false
+modules-left = i3
+modules-center = date
+modules-right = pulseaudio
+font-0 = Liberation Mono:size=10
+font-1 = Font Awesome 5 Free:size=10
