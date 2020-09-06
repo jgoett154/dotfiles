@@ -1,7 +1,7 @@
 ######### Variables #########
 include "$HOME/.cache/wal/colors-sway"
 set $term alacritty
-set $browser google-chrome-stable
+set $browser firefox
 set $menu env BEMENU_BACKEND=wayland bemenu -i --scrollbar=always -l 10 --fn "Liberation Mono 10" --tb "$color3" --tf "#FFFFFF" --fb "$color3" --ff "#FFFFFF" --nb "$color3" --nf "#FFFFFF" --hb "$color5" --hf "#FFFFFF" --scb "$color5" --scf "#FFFFFF"
 set $leftMonitor DVI-D-1
 set $rightMonitor HDMI-A-1
