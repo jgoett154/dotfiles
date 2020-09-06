@@ -4,7 +4,7 @@
 	"height": 30,
 	"modules-left": ["sway/workspaces"],
 	"modules-center": ["clock"],
-	"modules-right": ["idle_inhibitor", "temperature#cpu", "temperature#gpu", "pulseaudio#source", "pulseaudio#sink", "network", "tray"],
+	"modules-right": ["idle_inhibitor", "temperature#cpu", "temperature#gpu", "pulseaudio#source", "pulseaudio#sink", "tray"],
 	"sway/workspaces": {
 		"all-outputs": false,
 		"format": "{name}"
