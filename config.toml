@@ -1,5 +1,5 @@
 [tasks.default]
-deps = ["alacritty", "sway", "games", "nvim", "corsair"]
+deps = ["alacritty", "sway", "games", "nvim", "hardware"]
 
 [macros.install]
 deps = ["yay"]
@@ -60,7 +60,7 @@ cmds = [
 cmds = [
 	["gpg", "--search-keys", "A1774C1B37DC1DCEDB65EE469B8450B91D1362C1"],
 	["gpg", "--lsign-key", "A1774C1B37DC1DCEDB65EE469B8450B91D1362C1"],
-	["@install", "xorg-server-xwayland", "sway", "swayidle", "swaylock", "waybar", "mako", "bemenu", "j4-dmenu-desktop", "jq", "grim", "slurp", "wl-clipboard", "xdg-user-dirs"],
+	["@install", "xorg-server-xwayland", "sway", "swayidle", "swaylock", "waybar", "mako", "bemenu", "j4-dmenu-desktop", "jq", "grim", "slurp", "wl-clipboard", "xdg-user-dirs", "blueshift"],
 	["xdg-user-dirs-update"]
 ]
 deps = ["pywal", "fonts", "amdgpu", "audio", "browsers", "chat"]
@@ -72,11 +72,12 @@ links = [
 
 [tasks.i3]
 cmds = [
-	["@install", "i3-gaps"]
+	["@install", "i3-gaps", "polybar"]
 ]
 deps = ["pywal", "fonts", "amdgpu", "audio", "browsers", "chat"]
 links = [
-	[".config/i3"]
+	[".config/i3"],
+	[".config/polybar"]
 ]
 
 [tasks.nvim]
@@ -102,22 +103,25 @@ cmds = [
 
 [tasks.chat]
 cmds = [
-	["@install", "discord", "betterdiscordctl", "pidgin", "purple-facebook", "telegram-purple", "purple-battlenet-hg", "purple-discord-git", "purple-hangouts-hg"]
+	["@install", "discord", "pidgin", "purple-facebook", "telegram-purple", "purple-battlenet-hg", "purple-discord-git", "purple-hangouts-hg"]
 ]
 
-[tasks.corsair]
+[tasks.hardware]
 cmds = [
-	["@install", "opencorsairlink", "ckb-next"]
+	["@install", "ckb-next", "corectrl", "openrgb", "liquidctl"]
+]
+links = [
+	[".config/OpenRGB"]
 ]
 
 [tasks.games]
 cmds = [
-	["@install", "steam", "steam-native-runtime", "lutris", "wine", "retroarch", "multimc5"]
+	["@install", "steam", "steam-native-runtime", "lutris", "wine", "retroarch", "multimc5", "oversteer", "mangohud", "goverlay", "gamemode"]
 ]
 
 [tasks.amdgpu]
 cmds = [
-	["@install", "mesa", "lib32-mesa", "vulkan-radeon", "lib32-vulkan-radeon", "vulkan-icd-loader", "lib32-vulkan-icd-loader"]
+	["@install", "mesa", "lib32-mesa", "vulkan-radeon", "lib32-vulkan-radeon", "vulkan-icd-loader", "lib32-vulkan-icd-loader", "amdvlk", "lib32-amdvlk"]
 ]
 
 [tasks.music]
